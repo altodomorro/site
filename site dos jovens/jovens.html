@@ -5,576 +5,287 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FUTURO EM AÇÃO | Vagas para Menor Aprendiz</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Cores e Estilos Gerais */
-        :root {
-            --azul-escuro: #0a1a5c;
-            --laranja: #FF6B35;
-            --verde: #4CAF50;
-            --branco: #fff;
-            --cinza-claro: #f5f7fa;
-        }
-        
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--cinza-claro);
+            background-color: #f5f7fa;
             color: #333;
-            line-height: 1.6;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Cabeçalho */
         header {
-            background: linear-gradient(135deg, var(--azul-escuro) 0%, #1a237e 100%);
+            background: linear-gradient(135deg, #0a1a5c, #1a237e);
             color: white;
-            padding: 30px 0;
+            padding: 30px;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
-        
         .logo {
             font-size: 2.5rem;
             font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             margin-bottom: 10px;
+            font-family: 'Great Vibes', cursive; /* Fonte estilizada para a logo */
         }
-        
-        .logo i {
-            margin-right: 15px;
-            color: var(--laranja);
-        }
-        
-        .logo-text {
-            background: linear-gradient(to right, var(--branco) 0%, var(--laranja) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        /* Navegação */
-        .nav-container {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin: 30px auto;
-            max-width: 90%;
-        }
-        
-        .nav-tabs {
+        .nav {
             display: flex;
-            justify-content: space-around;
-            list-style: none;
-            padding: 0;
-            margin: 0;
+            justify-content: center;
+            background: white;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        
-        .nav-tabs li {
-            flex: 1;
-            text-align: center;
-        }
-        
-        .nav-tabs a {
-            display: block;
-            padding: 15px 10px;
+        .nav a {
+            margin: 0 15px;
             text-decoration: none;
-            color: var(--azul-escuro);
+            color: #0a1a5c;
             font-weight: 600;
-            position: relative;
-            transition: all 0.3s;
-            border-bottom: 3px solid transparent;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background 0.3s;
         }
-        
-        .nav-tabs a:hover, 
-        .nav-tabs a.active {
-            color: var(--laranja);
-            border-bottom: 3px solid var(--laranja);
+        .nav a:hover, .nav a.active {
+            background: #FF6B35;
+            color: white;
         }
-        
-        .nav-tabs a i {
-            margin-right: 8px;
-        }
-        
-        /* Conteúdo das Abas */
         .tab-content {
             display: none;
-            animation: fadeIn 0.5s;
+            padding: 20px;
+            background: white;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        
         .tab-content.active {
             display: block;
         }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* Seção de Vagas */
-        .jobs-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-        
         .job-card {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            overflow: hidden;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
             transition: transform 0.3s;
-            position: relative;
         }
-        
         .job-card:hover {
-            transform: translateY(-5px);
+            transform: scale(1.02);
         }
-        
-        .job-header {
-            padding: 20px;
-            border-bottom: 1px solid #eee;
+        .job-card h3 {
+            margin: 0;
         }
-        
-        .job-title {
-            font-size: 1.3rem;
-            margin-bottom: 5px;
-            color: var(--azul-escuro);
+        .job-card p {
+            margin: 5px 0;
         }
-        
-        .company {
-            color: #666;
-            font-weight: 500;
-        }
-        
-        .job-body {
-            padding: 20px;
-        }
-        
-        .job-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-        
-        .meta-item {
-            display: flex;
-            align-items: center;
-            font-size: 0.9rem;
-            color: #555;
-        }
-        
-        .meta-item i {
-            margin-right: 8px;
-            color: var(--laranja);
-        }
-        
-        .job-desc {
-            color: #666;
-            margin-bottom: 20px;
-        }
-        
-        .requirements {
-            margin-bottom: 20px;
-        }
-        
-        .requirements h4 {
-            margin-bottom: 10px;
-            color: var(--azul-escuro);
-        }
-        
-        .requirements ul {
-            padding-left: 20px;
-        }
-        
-        .requirements li {
-            margin-bottom: 5px;
-            list-style-type: disc;
-        }
-        
         .apply-btn {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            background-color: var(--laranja);
+            background: #FF6B35;
             color: white;
             border: none;
+            padding: 10px;
             border-radius: 5px;
-            font-weight: 600;
             cursor: pointer;
             transition: background 0.3s;
-            text-align: center;
-            text-decoration: none;
         }
-        
         .apply-btn:hover {
-            background-color: #e05723;
+            background: #e05723;
         }
-        
-        /* Seção de Cadastro */
         .register-form {
-            background: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            max-width: 600px;
-            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
         }
-        
-        .form-title {
-            text-align: center;
-            color: var(--azul-escuro);
-            margin-bottom: 30px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--azul-escuro);
-            font-weight: 500;
-        }
-        
-        input, select {
-            width: 100%;
-            padding: 12px 15px;
+        .register-form input, .register-form select {
+            margin: 10px 0;
+            padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
-            font-size: 16px;
-            transition: border 0.3s;
         }
-        
-        input:focus, select:focus {
-            border-color: var(--laranja);
-            outline: none;
-        }
-        
         .submit-btn {
-            background: var(--verde);
+            background: #4CAF50;
             color: white;
             border: none;
-            padding: 15px;
-            width: 100%;
+            padding: 10px;
             border-radius: 5px;
-            font-weight: 600;
-            font-size: 16px;
             cursor: pointer;
             transition: background 0.3s;
-            margin-top: 10px;
         }
-        
         .submit-btn:hover {
             background: #3da535;
         }
-        
         .success-message {
             display: none;
             background: rgba(76, 175, 80, 0.2);
-            border-left: 4px solid var(--verde);
+            border-left: 4px solid #4CAF50;
             padding: 15px;
             margin-bottom: 20px;
             border-radius: 0 5px 5px 0;
         }
-        
-        /* Seção de Informações */
-        .info-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-        
-        .info-card {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            padding: 20px;
-        }
-        
-        .info-card h3 {
-            margin-bottom: 15px;
-            color: var(--azul-escuro);
-        }
-        
-        .info-card ul {
-            padding-left: 20px;
-        }
-        
-        .info-card li {
-            margin-bottom: 5px;
-            list-style-type: disc;
-        }
-        
-        /* Rodapé */
         footer {
-            background: var(--azul-escuro);
+            background: #0a1a5c;
             color: white;
-            padding: 40px 0;
-            margin-top: 50px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-        }
-        
-        .footer-section h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            position: relative;
-        }
-        
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background: var(--laranja);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
+            padding: 20px;
+            text-align: center;
             margin-top: 20px;
         }
-        
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            color: white;
-            transition: all 0.3s;
+        .info-section {
+            margin: 20px 0;
         }
-        
-        .social-link:hover {
-            background: var(--laranja);
-            transform: translateY(-3px);
+        .info-section h2 {
+            margin-bottom: 10px;
         }
-        
-        .copyright {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.7);
+        .info-section ul {
+            list-style-type: disc;
+            padding-left: 20px;
         }
-        
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .nav-tabs {
-                flex-direction: column;
-            }
-            
-            .nav-tabs li {
-                text-align: left;
-            }
+        .info-section li {
+            margin: 5px 0;
         }
     </style>
 </head>
 <body>
-    <!-- Cabeçalho -->
     <header>
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-briefcase"></i>
-                <span class="logo-text">FUTURO EM AÇÃO</span>
-            </div>
-            <p>Conectando jovens talentos às melhores oportunidades</p>
-        </div>
+        <div class="logo">FUTURO EM AÇÃO</div>
+        <p>Conectando jovens talentos às melhores oportunidades</p>
     </header>
     
-    <!-- Navegação -->
-    <div class="container">
-        <div class="nav-container">
-            <ul class="nav-tabs">
-                <li>
-                    <a href="#" class="nav-link active" data-tab="jobs">
-                        <i class="fas fa-briefcase"></i> Vagas
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link" data-tab="register">
-                        <i class="fas fa-user-plus"></i> Cadastro
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link" data-tab="info">
-                        <i class="fas fa-info-circle"></i> Informações
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link" data-tab="contact">
-                        <i class="fas fa-envelope"></i> Contato
-                    </a>
-                </li>
-            </ul>
+    <nav class="nav">
+        <a href="#" class="active" data-tab="jobs">Vagas</a>
+        <a href="#" data-tab="register">Cadastro</a>
+        <a href="#" data-tab="info">Informações</a>
+        <a href="#" data-tab="contact">Contato</a>
+        <a href="#" data-tab="about">Sobre Nós</a>
+        <a href="#" data-tab="how-it-works">Como Funciona</a>
+    </nav>
+    
+    <div id="jobs" class="tab-content active">
+        <h2>Vagas Disponíveis</h2>
+        <div class="job-card">
+            <h3>Aprendiz de Varejo</h3>
+            <p>Supermercado Preço Bom</p>
+            <p>Localização: Rua das Flores, 123 - Centro</p>
+            <p>Salário: R$ 650,00</p>
+            <button class="apply-btn">Quero esta vaga</button>
         </div>
-        
-        <!-- Mensagem de Sucesso (oculta inicialmente) -->
+        <div class="job-card">
+            <h3>Aprendiz Administrativo</h3>
+            <p>Escritório Contábil Total</p>
+            <p>Localização: Av. Brasil, 456 - Jardim</p>
+            <p>Salário: R$ 750,00</p>
+            <button class="apply-btn">Quero esta vaga</button>
+        </div>
+        <div class="job-card">
+            <h3>Aprendiz de Farmácia</h3>
+            <p>Farmácia Bem Estar</p>
+            <p>Localização: Av. das Américas, 789 - Bairro Novo</p>
+            <p>Salário: R$ 700,00</p>
+            <button class="apply-btn">Quero esta vaga</button>
+        </div>
+    </div>
+    
+    <div id="register" class="tab-content">
+        <h2>Cadastre-se</h2>
+        <form class="register-form" id="registrationForm">
+            <input type="text" placeholder="Nome Completo" required>
+            <input type="date" placeholder="Data de Nascimento" required>
+            <input type="email" placeholder="E-mail" required>
+            <input type="tel" placeholder="Telefone" required>
+            <input type="text" placeholder="Endereço" required>
+            <select required>
+                <option value="">Escolaridade</option>
+                <option>Ensino Fundamental (cursando)</option>
+                <option>Ensino Fundamental completo</option>
+                <option>Ensino Médio (cursando)</option>
+                <option>Ensino Médio completo</option>
+            </select>
+            <button type="submit" class="submit-btn">Finalizar Cadastro</button>
+        </form>
         <div id="successMessage" class="success-message">
             <p><strong>Cadastro realizado com sucesso!</strong> Agora você pode se candidatar às vagas.</p>
         </div>
-        
-        <!-- Seção de Vagas -->
-        <div id="jobs" class="tab-content active">
-            <h2>Vagas Disponíveis</h2>
-            <p>Encontre as melhores oportunidades para menor aprendiz na sua região</p>
-            
-            <div class="jobs-container">
-                <!-- Vaga 1 -->
-                <div class="job-card">
-                    <div class="job-header">
-                        <h3 class="job-title">Aprendiz de Varejo</h3>
-                        <p class="company">Supermercado Preço Bom</p>
-                    </div>
-                    <div class="job-body">
-                        <div class="job-meta">
-                            <div class="meta-item">
-                                <i class="fas fa-map-marker-alt"></i> 1.2 km
-                            </div>
-                            <div class="meta-item">
-                                <i class="fas fa-clock"></i> 6h/dia
-                            </div>
-                            <div class="meta-item">
-                                <i class="fas fa-dollar-sign"></i> R$ 650
-                            </div>
-                        </div>
-                        <div class="job-desc">
-                            Auxiliar no atendimento ao cliente, organização de estoque e reposição de mercadorias.
-                        </div>
-                        <div class="requirements">
-                            <h4>Requisitos:</h4>
-                            <ul>
-                                <li>Ensino Médio cursando</li>
-                                <li>Boa comunicação</li>
-                                <li>Disponibilidade para trabalhar de segunda a sábado</li>
-                            </ul>
-                        </div>
-                        <a href="#" class="apply-btn" data-job="Aprendiz de Varejo">Quero esta vaga</a>
-                    </div>
-                </div>
-                
-                <!-- Vaga 2 -->
-                <div class="job-card">
-                    <div class="job-header">
-                        <h3 class="job-title">Aprendiz Administrativo</h3>
-                        <p class="company">Escritório Contábil Total</p>
-                    </div>
-                    <div class="job-body">
-                        <div class="job-meta">
-                            <div class="meta-item">
-                                <i class="fas fa-map-marker-alt"></i> 3.5 km
-                            </div>
-                            <div class="meta-item">
-                                <i class="fas fa-clock"></i> 6h/dia
-                            </div>
-                            <div class="meta-item">
-                                <i class="fas fa-dollar-sign"></i> R$ 750
-                            </div>
-                        </div>
-                        <div class="job-desc">
-                            Auxiliar nos serviços administrativos, arquivamento e organização de documentos.
-                        </div>
-                        <div class="requirements">
-                            <h4>Requisitos:</h4>
-                            <ul>
-                                <li>Ensino Médio completo</li>
-                                <li>Conhecimento básico de informática</li>
-                                <li>Organização e atenção</li>
-                            </ul>
-                        </div>
-                        <a href="#" class="apply-btn" data-job="Aprendiz Administrativo">Quero esta vaga</a>
-                    </div>
-                </div>
-                
-                <!-- Vaga 3 -->
-                <div class="job-card">
-                    <div class="job-header">
-                        <h3 class="job-title">Aprendiz de Farmácia</h3>
-                        <p class="company">Farmácia Bem Estar</p>
-                    </div>
-                    <div class="job-body">
-                        <div class="job-meta">
-                            <div class="meta-item">
-                                <i class="fas fa-map-marker-alt"></i> 2.8 km
-                            </div>
-                            <div class="meta-item">
-                                <i class="fas fa-clock"></i> 5h/dia
-                            </div>
-                            <div class="meta-item">
-                                <i class="fas fa-dollar-sign"></i> R$ 700
-                            </div>
-                        </div>
-                        <div class="job-desc">
-                            Auxiliar no atendimento, organização de estoque e apoio aos farmacêuticos.
-                        </div>
-                        <div class="requirements">
-                            <h4>Requisitos:</h4>
-                            <ul>
-                                <li>Ensino Médio cursando</li>
-                                <li>Boa comunicação</li>
-                                <li>Responsabilidade</li>
-                            </ul>
-                        </div>
-                        <a href="#" class="apply-btn" data-job="Aprendiz de Farmácia">Quero esta vaga</a>
-                    </div>
-                </div>
-            </div>
+    </div>
+    
+    <div id="info" class="tab-content">
+        <h2>Informações Importantes</h2>
+        <div class="info-section">
+            <h3>Documentos Necessários:</h3>
+            <ul>
+                <li>RG ou Certidão de Nascimento</li>
+                <li>CPF</li>
+                <li>Comprovante de Matrícula Escolar</li>
+            </ul>
         </div>
+        <div class="info-section">
+            <h3>Benefícios:</h3>
+            <ul>
+                <li>Vale Transporte</li>
+                <li>Vale Refeição</li>
+                <li>Oportunidade de aprendizado e crescimento profissional</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="contact" class="tab-content">
+        <h2>Contato</h2>
+        <p>Email: contato@futuroemacao.com.br</p>
+        <p>Telefone: (11) 9999-9999</p>
+    </div>
+
+    <div id="about" class="tab-content">
+        <h2>Sobre Nós</h2>
+        <p>Bem-vindo ao FUTURO EM AÇÃO, uma plataforma dedicada a conectar jovens talentos com oportunidades de trabalho como menor aprendiz. Nossa missão é ajudar os jovens a ingressar no mercado de trabalho, proporcionando experiências valiosas e desenvolvimento profissional.</p>
         
-        <!-- Seção de Cadastro -->
-        <div id="register" class="tab-content">
-            <div class="register-form">
-                <h2 class="form-title">Cadastre-se</h2>
-                <form id="registrationForm">
-                    <div class="form-group">
-                        <label for="fullName">Nome Completo</label>
-                        <input type="text" id="fullName" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="birthDate">Data de Nascimento</label>
-                        <input type="date" id="birthDate" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Telefone</label>
-                        <input type="tel" id="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="address">Endereço</label>
-                        <input type="text" id="address" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="education">Escolaridade</label>
-                        <select id="education" required>
-                            <option value="">Selecione</option>
-                            <option>Ensino Fundamental (cursando)</option>
-                            <option>Ensino Fundamental completo</option>
-                            <option>Ensino Médio (cursando)</option>
-                            <option>Ensino Médio completo</option>
-                        </select>
-                    </div>
-                    <button
+        <h3>Missão</h3>
+        <p>Capacitar jovens para o mercado de trabalho, oferecendo oportunidades de aprendizado e crescimento em um ambiente profissional.</p>
+        
+        <h3>Visão</h3>
+        <p>Ser a principal plataforma de conexão entre jovens e empresas, reconhecida pela qualidade das oportunidades oferecidas e pelo impacto positivo na vida dos jovens.</p>
+        
+        <h3>Valores</h3>
+        <ul>
+            <li>Compromisso com a educação e o desenvolvimento profissional.</li>
+            <li>Transparência nas relações com jovens e empresas.</li>
+            <li>Inovação na busca de novas oportunidades e parcerias.</li>
+            <li>Respeito e inclusão para todos os jovens, independentemente de sua origem.</li>
+        </ul>
+        
+        <h3>Histórico</h3>
+        <p>Fundada em 2023, a FUTURO EM AÇÃO surgiu da necessidade de apoiar jovens em sua transição para o mercado de trabalho. Desde então, temos trabalhado com diversas empresas para oferecer vagas de menor aprendiz, ajudando a moldar o futuro de muitos jovens.</p>
+    </div>
+
+    <div id="how-it-works" class="tab-content">
+        <h2>Como Funciona</h2>
+        <p>A FUTURO EM AÇÃO conecta jovens em busca de oportunidades de trabalho com empresas que oferecem vagas de menor aprendiz. O processo é simples:</p>
+        <ol>
+            <li><strong>Cadastro:</strong> Os jovens se cadastram na nossa plataforma preenchendo um formulário com suas informações pessoais e educacionais.</li>
+            <li><strong>Busca de Vagas:</strong> Após o cadastro, os jovens podem visualizar as vagas disponíveis e se candidatar às que mais se adequam ao seu perfil.</li>
+            <li><strong>Seleção:</strong> As empresas analisam as candidaturas e realizam entrevistas com os candidatos selecionados.</li>
+            <li><strong>Contratação:</strong> Os jovens que forem aprovados nas entrevistas são contratados como menores aprendizes e começam sua jornada profissional.</li>
+        </ol>
+        <p>Nosso objetivo é facilitar essa conexão e garantir que os jovens tenham acesso a oportunidades que contribuam para seu desenvolvimento pessoal e profissional.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 FUTURO EM AÇÃO. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const tabs = document.querySelectorAll('.nav a');
+        const contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function(e) {
+                e.preventDefault();
+                tabs.forEach(t => t.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
+                
+                this.classList.add('active');
+                const activeTab = this.getAttribute('data-tab');
+                document.getElementById(activeTab).classList.add('active');
+            });
+        });
+
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('successMessage').style.display = 'block';
+            this.reset();
+        });
+    </script>
+</body>
+</html>
